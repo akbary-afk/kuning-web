@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diskusi AI</title>
+    <meta
+      name="description"
+      content="Asisten belajar interaktif untuk membahas integrasi sosial, Pancasila, dan toleransi."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <div class="animated-bg"></div>
+    <div class="batik-texture"></div>
+
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="materi.html">Materi</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="chat.html" aria-current="page">Diskusi AI</a></li>
+      </ul>
+      <div class="brand-group">
+        <a class="logo" href="../index.html">
+          <img src="../assets/images/logo.png" alt="Tiger House Kuning" />
+        </a>
+        <a
+          class="instagram-link"
+          href="https://www.instagram.com/housekuning?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <div class="hero hero-compact">
+        <h1>Diskusi dengan AI</h1>
+        <p>
+          Ajukan pertanyaan tentang integrasi sosial, Pancasila, toleransi, dan
+          persatuan Indonesia. Halaman ini bekerja langsung di browser, jadi
+          cocok untuk deploy statis di Vercel.
+        </p>
+      </div>
+
+      <section class="chat-shell">
+        <div class="chat-intro-card">
+          <p class="chat-kicker">Mode Percakapan</p>
+          <h2>AI Nusantara</h2>
+          <p>
+            Pengalaman chat ini dibuat lebih dekat ke gaya ChatGPT atau Gemini:
+            terasa responsif, rapi, dan nyaman untuk bertanya panjang.
+          </p>
+          <div class="prompt-grid" id="prompt-grid">
+            <button
+              class="prompt-chip"
+              type="button"
+              data-prompt="Jelaskan integrasi sosial dengan bahasa yang sederhana."
+            >
+              Jelaskan integrasi sosial dengan sederhana
+            </button>
+            <button
+              class="prompt-chip"
+              type="button"
+              data-prompt="Apa perbedaan NU dan Muhammadiyah secara singkat?"
+            >
+              Bedanya NU dan Muhammadiyah apa?
+            </button>
+            <button
+              class="prompt-chip"
+              type="button"
+              data-prompt="Buat jawaban tugas tentang pentingnya toleransi di Indonesia."
+            >
+              Buat jawaban tugas tentang toleransi
+            </button>
+            <button
+              class="prompt-chip"
+              type="button"
+              data-prompt="Kasih contoh persatuan bangsa dalam kehidupan sehari-hari."
+            >
+              Contoh persatuan dalam kehidupan sehari-hari
+            </button>
+          </div>
+        </div>
+
+        <section class="chat-container">
+          <div class="chat-header">
+            <div class="chat-header-copy">
+              <p class="chat-label">Asisten Diskusi</p>
+              <h2>AI Nusantara</h2>
+              <p class="chat-subtitle">
+                Jawaban lebih hidup, lebih rapi, dan lebih terasa seperti
+                ngobrol langsung.
+              </p>
+            </div>
+            <div class="chat-status" aria-label="Status AI">
+              <span class="chat-status-dot"></span>
+              <span>Siap menjawab</span>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chat-messages"></div>
+
+          <form class="chat-input-area" id="chat-form">
+            <label class="sr-only" for="message-input">Tulis pertanyaan</label>
+            <textarea
+              id="message-input"
+              rows="1"
+              placeholder="Contoh: Apa arti integrasi sosial dalam kehidupan sehari-hari?"
+            ></textarea>
+            <div class="chat-actions">
+              <p class="chat-hint">
+                Enter untuk kirim, Shift + Enter untuk baris baru
+              </p>
+              <button id="send-btn" type="submit">Kirim</button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="../assets/js/chat.js" defer></script>
+  </body>
+</html>

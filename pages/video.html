@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Edukasi</title>
+    <meta
+      name="description"
+      content="Video edukasi tentang integrasi sosial dan persatuan Indonesia."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <style>
+      .video-frame {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .video-frame:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Overlay transparan yang menutupi seluruh video */
+      .youtube-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.08); /* sedikit gelap saat hover */
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .video-frame:hover .youtube-overlay {
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      /* Teks di tengah */
+      .overlay-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        pointer-events: none; /* agar klik tetap ke overlay */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .overlay-text::before {
+        content: "\25B6";
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated-bg"></div>
+    <div class="batik-texture"></div>
+
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="materi.html">Materi</a></li>
+        <li><a href="video.html" aria-current="page">Video</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="chat.html">Diskusi AI</a></li>
+      </ul>
+      <div class="brand-group">
+        <a class="logo" href="../index.html">
+          <img src="../assets/images/logo.png" alt="Tiger House Kuning" />
+        </a>
+        <a
+          class="instagram-link"
+          href="https://www.instagram.com/housekuning?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <section class="card page-card">
+        <div class="hero video-ai-hero hero-compact">
+          <h1>Video Edukasi</h1>
+          <p>
+            Video singkat untuk membantu memahami integrasi sosial dan semangat
+            persatuan di Indonesia.
+          </p>
+        </div>
+
+        <div class="video-player-container">
+          <div class="video-frame" id="video-wrapper">
+            <!-- Overlay yang bisa diklik -->
+            <div class="youtube-overlay" id="youtube-overlay">
+              <div class="overlay-text">Tonton di YouTube</div>
+            </div>
+
+            <!-- Iframe YouTube -->
+            <iframe
+              id="youtube-player"
+              src="https://www.youtube-nocookie.com/embed/AWWBt1uRISk"
+              title="Video edukasi integrasi sosial"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+                fullscreen;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              style="
+                width: 100%;
+                height: 100%;
+                border: none;
+                pointer-events: none;
+              "
+            >
+            </iframe>
+          </div>
+
+          <div
+            class="ai-description"
+            style="margin-top: 20px; text-align: center"
+          >
+            <p>
+              Klik area video di atas untuk membuka di YouTube<br />
+              <strong>https://youtu.be/AWWBt1uRISk</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const overlay = document.getElementById("youtube-overlay");
+      const youtubeUrl = "https://youtu.be/AWWBt1uRISk?si=NkldOTJLqzIDDAsU";
+
+      if (overlay) {
+        // Satu klik langsung ke YouTube
+        overlay.addEventListener("click", () => {
+          window.open(youtubeUrl, "_blank", "noopener");
+        });
+      }
+    </script>
+  </body>
+</html>
+
