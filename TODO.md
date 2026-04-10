@@ -1,11 +1,6 @@
-# TODO: Insert Article into pages/artikel.html - COMPLETED
+# TODO: Update Artikel Page
 
-## Plan Steps:
-
-1. ~~Create TODO.md to track progress~~
-2. ~~Edit pages/artikel.html: Update title, hero section, and replace .materi-content with formatted new article~~
-3. ~~Verify layout and styling compatibility~~
-4. ~~Update TODO.md with completion status~~
-5. ~~Attempt completion~~
-
-Artikel berhasil dimasukkan ke pages/artikel.html dengan struktur yang sesuai tema situs.
+- [x] Create TODO.md with plan steps
+- [x] Step 1: Edit pages/artikel.html to replace article content with new filantropi article while preserving structure
+- [ ] Step 2: Preview the updated page (e.g., open in browser)
+- [ ] Step 3: Complete task with attempt_completion

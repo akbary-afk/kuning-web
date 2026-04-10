@@ -5,7 +5,13 @@
   const sendButton = document.getElementById("send-btn");
   const promptGrid = document.getElementById("prompt-grid");
 
-  if (!chatForm || !chatMessages || !messageInput || !sendButton || !promptGrid) {
+  if (
+    !chatForm ||
+    !chatMessages ||
+    !messageInput ||
+    !sendButton ||
+    !promptGrid
+  ) {
     return;
   }
 
@@ -41,7 +47,7 @@
   ];
 
   const starters = [
-    "Halo, saya AI Nusantara.\n\nKita bisa ngobrol santai tentang integrasi sosial, Pancasila, toleransi, NU, Muhammadiyah, atau persatuan Indonesia.",
+    "Halo, saya AI Nusantara.\n\nKita bisa ngobrol santai tentang integrasi sosial, Pancasila, toleransi, atau persatuan Indonesia.",
     "Tulis pertanyaan seperti saat berbicara ke ChatGPT atau Gemini. Saya akan menjawab dengan gaya yang lebih natural, rapi, dan enak dibaca.",
   ];
 
@@ -91,7 +97,7 @@
       conversationState.lastTopic = "sapaan";
       return [
         pick(openings.greeting),
-        "Saya siap menemani diskusi tentang integrasi sosial, Pancasila, toleransi, NU, Muhammadiyah, atau persatuan bangsa.",
+        "Saya siap menemani diskusi tentang integrasi sosial, Pancasila, toleransi, atau persatuan bangsa.",
         "Kamu bisa tanya singkat, atau langsung kirim pertanyaan panjang juga boleh.",
       ].join(" ");
     }
@@ -122,7 +128,7 @@
             pick(openings.supportive),
             "Integrasi sosial adalah proses menyatukan berbagai perbedaan agar masyarakat tetap hidup rukun, saling percaya, dan bisa bekerja sama.",
             "Jadi, intinya bukan membuat semua orang menjadi sama, tetapi membuat perbedaan bisa hidup berdampingan secara harmonis.",
-            "Contohnya terlihat saat warga dengan latar belakang berbeda tetap bergotong royong, bermusyawarah, dan menjaga lingkungan bersama.",
+            "Contohnya terlihat saat warga dengan latar belakang berbeda tetap bergotong royong dan menjaga lingkungan bersama.",
             pick(followUps),
           ].join("\n\n");
         },
@@ -133,108 +139,31 @@
         build() {
           return [
             pick(openings.reflective),
-            "Pancasila bisa dipahami sebagai dasar nilai untuk hidup bersama di tengah keberagaman Indonesia.",
-            "Nilainya terasa nyata ketika kita menghormati perbedaan, berlaku adil, menjaga persatuan, dan menyelesaikan masalah lewat musyawarah.",
-            "Karena itu, Pancasila bukan hanya hafalan sila, tetapi pedoman bersikap dalam kehidupan sehari-hari.",
+            "Pancasila adalah dasar nilai untuk hidup bersama di tengah keberagaman Indonesia.",
+            "Nilainya terlihat saat kita menghormati perbedaan, berlaku adil, menjaga persatuan, dan menyelesaikan masalah lewat musyawarah.",
             pick(followUps),
           ].join("\n\n");
         },
       },
       {
         topic: "toleransi",
-        keywords: ["toleransi", "menghargai perbedaan"],
+        keywords: ["toleransi"],
         build() {
           return [
             pick(openings.supportive),
-            "Toleransi berarti menghormati orang lain yang berbeda agama, budaya, pendapat, atau kebiasaan, tanpa harus kehilangan identitas kita sendiri.",
-            "Sikap ini penting karena masyarakat yang beragam hanya bisa damai jika ada rasa hormat dan pengendalian diri.",
-            "Dalam praktiknya, toleransi bisa terlihat dari cara kita berbicara sopan, tidak memaksakan pendapat, dan tetap bekerja sama meskipun berbeda.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "gotong royong",
-        keywords: ["gotong royong"],
-        build() {
-          return [
-            "Gotong royong adalah contoh paling nyata dari persatuan dalam tindakan.",
-            "Lewat gotong royong, orang belajar bahwa masalah bersama lebih mudah diselesaikan jika dikerjakan bersama, bukan sendiri-sendiri.",
-            "Karena itu, gotong royong sering dianggap sebagai kekuatan sosial yang mempererat hubungan antarwarga.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "konflik sosial",
-        keywords: ["konflik", "perpecahan"],
-        build() {
-          return [
-            pick(openings.reflective),
-            "Konflik sosial biasanya muncul karena perbedaan kepentingan, salah paham, prasangka, atau komunikasi yang buruk.",
-            "Cara menguranginya adalah dengan dialog yang tenang, sikap adil, empati, dan kemauan mencari titik temu.",
-            "Tujuannya bukan mencari siapa yang paling menang, tetapi bagaimana semua pihak bisa kembali hidup damai.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "keberagaman",
-        keywords: ["budaya", "keberagaman", "beragam", "bhinneka"],
-        build() {
-          return [
-            "Keberagaman di Indonesia seharusnya dilihat sebagai kekuatan, bukan ancaman.",
-            "Saat kita mengenal perbedaan dengan rasa hormat, kita justru belajar bahwa persatuan tidak menghapus warna-warna yang ada.",
-            "Semangat ini sejalan dengan Bhinneka Tunggal Ika, yaitu berbeda-beda tetapi tetap satu tujuan sebagai bangsa.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "NU",
-        keywords: ["nu", "nahdlatul ulama"],
-        build() {
-          return [
-            "Nahdlatul Ulama dikenal sebagai organisasi Islam besar yang dekat dengan tradisi, moderasi, dan kehidupan sosial masyarakat.",
-            "Peran NU terasa kuat dalam menjaga nilai keagamaan yang ramah, toleran, dan selaras dengan konteks Indonesia.",
-            "Karena itu, NU sering dipandang sebagai salah satu kekuatan penting dalam menjaga keseimbangan dan persatuan masyarakat.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "Muhammadiyah",
-        keywords: ["muhammadiyah"],
-        build() {
-          return [
-            "Muhammadiyah dikenal melalui perannya dalam pembaruan pemikiran Islam, pendidikan, kesehatan, dan pelayanan sosial.",
-            "Kontribusinya sangat terasa karena organisasi ini tidak hanya berbicara soal nilai, tetapi juga membangun sekolah, kampus, rumah sakit, dan layanan masyarakat.",
-            "Dari sini kita bisa melihat bahwa integritas juga berarti konsisten memberi manfaat nyata bagi umat dan bangsa.",
-            pick(followUps),
-          ].join("\n\n");
-        },
-      },
-      {
-        topic: "perbedaan NU dan Muhammadiyah",
-        keywords: ["perbedaan nu dan muhammadiyah", "nu dan muhammadiyah", "beda nu", "beda muhammadiyah"],
-        build() {
-          return [
-            pick(openings.supportive),
-            "Secara sederhana, NU dan Muhammadiyah sama-sama organisasi Islam besar yang ingin memajukan umat, tetapi pendekatan mereka berbeda.",
-            "NU lebih dikenal kuat dalam menjaga tradisi keislaman yang tumbuh di masyarakat, sedangkan Muhammadiyah lebih dikenal lewat semangat pembaruan, pendidikan, dan pelayanan sosial yang modern.",
-            "Perbedaan ini sebaiknya dipahami sebagai variasi cara berkontribusi, bukan alasan untuk dipertentangkan.",
+            "Toleransi berarti menghormati orang lain yang berbeda tanpa harus kehilangan identitas diri.",
+            "Sikap ini penting agar masyarakat yang beragam bisa hidup damai.",
             pick(followUps),
           ].join("\n\n");
         },
       },
       {
         topic: "persatuan",
-        keywords: ["persatuan", "kesatuan", "bangsa"],
+        keywords: ["persatuan", "bangsa"],
         build() {
           return [
-            "Persatuan bangsa tumbuh ketika masyarakat merasa memiliki tujuan bersama meskipun berasal dari latar belakang yang berbeda.",
-            "Itu sebabnya sikap saling menghargai, adil, dan mau bekerja sama menjadi fondasi yang sangat penting.",
-            "Kalau fondasi ini kuat, perbedaan tidak akan mudah berubah menjadi perpecahan.",
+            "Persatuan bangsa tumbuh dari rasa saling menghargai dan tujuan bersama.",
+            "Dengan persatuan, perbedaan tidak menjadi konflik tetapi menjadi kekuatan.",
             pick(followUps),
           ].join("\n\n");
         },
@@ -248,16 +177,9 @@
       }
     }
 
-    const contextualIntro =
-      conversationState.lastTopic && conversationState.turnCount > 1
-        ? `Masih nyambung dengan pembahasan tentang ${conversationState.lastTopic}, `
-        : "";
-
     return [
-      contextualIntro +
-        `saya menangkap bahwa kamu sedang membahas "${text}".`,
-      "Kalau dijelaskan secara umum, kita bisa melihatnya dari tiga sisi: maknanya, dampaknya bagi kehidupan bersama, dan contoh sikap nyatanya.",
-      "Kalau kamu mau, kirim pertanyaan yang lebih spesifik, misalnya minta definisi, contoh, perbedaan, atau versi singkat untuk tugas sekolah.",
+      `Saya menangkap bahwa kamu sedang membahas "${text}".`,
+      "Kalau mau, kirim pertanyaan yang lebih spesifik supaya saya bisa bantu lebih tepat.",
     ].join("\n\n");
   }
 
@@ -277,7 +199,6 @@
     message.appendChild(messageText);
     chatMessages.appendChild(message);
     chatMessages.scrollTop = chatMessages.scrollHeight;
-    return message;
   }
 
   function appendTypingMessage() {
@@ -290,7 +211,6 @@
 
     const dots = document.createElement("span");
     dots.className = "typing-dots";
-    dots.setAttribute("aria-label", "AI sedang mengetik");
     dots.innerHTML = "<span></span><span></span><span></span>";
 
     typingMessage.appendChild(meta);
@@ -322,14 +242,13 @@
 
     const typingBubble = appendTypingMessage();
     const reply = buildLocalReply(messageText);
-    const delay = Math.min(2200, 650 + reply.length * 7);
 
-    window.setTimeout(() => {
+    setTimeout(() => {
       typingBubble.remove();
       appendMessage(assistantName, reply, "received");
       setLoading(false);
       messageInput.focus();
-    }, delay);
+    }, 1000);
   }
 
   function containsAny(text, keywords) {
